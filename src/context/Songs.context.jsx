@@ -82,9 +82,9 @@ export const SongsProvider = ({ children }) => {
     newSocket.on("toggleIsRunning", (data) => {
       setIsRunning(data.isRunning);
     });
-    newSocket.on("getIsRunning", (data) => {
-      setIsRunning(data.isRunning);
-    });
+    // newSocket.on("getIsRunning", (data) => {
+    //   setIsRunning(data.isRunning);
+    // });
     newSocket.on("getActiveSession", (data) => {
       setActiveSession(data.activeSession);
     });
