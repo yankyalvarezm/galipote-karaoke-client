@@ -84,7 +84,9 @@ export const SongsProvider = ({ children }) => {
 
     newSocket.on("toggleIsRunning", (data) => {
       console.log("toggleIsRunning:", data.isRunning);
-      setIsRunning(data.isRunning);
+      if (isRunning !== data) {
+        setIsRunning(data.isRunning);
+      }
     });
     newSocket.on("getIsRunning", (data) => {
       setIsRunning(data.isRunning);
