@@ -3,9 +3,10 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { tempSignUp, handleInputChange } from "../services/auth.service";
 import cantico from "../assets/cantico-black-white.png";
 import lach from "../assets/lach-blue-logo.png";
+import lachWhite from "../assets/lach-logo.png";
 import { AuthContext } from "../context/auth.context";
 import { useSongs } from "../context/Songs.context";
-import signUpFooter from "../assets/signup-footer.png"
+import signUpFooter from "../assets/signup-footer.png";
 
 const SignUpForm = () => {
   // Definición de estados y lógica similar a LoginPrompt
@@ -21,16 +22,10 @@ const SignUpForm = () => {
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
-    tempSignUp(
-      name,
-      signUpCode,
-      setIsLoggedIn,
-      setUser,
-      (currentUser) => {
-        console.log("Current User:", currentUser);
-        setUser(currentUser);
-      }
-    )
+    tempSignUp(name, signUpCode, setIsLoggedIn, setUser, (currentUser) => {
+      console.log("Current User:", currentUser);
+      setUser(currentUser);
+    })
       .then((data) => {
         navigate("/mysongs");
         handleAddSong();
@@ -44,7 +39,7 @@ const SignUpForm = () => {
   return (
     <div className="userform-container">
       <div className="logo-title">
-        <img src={lach} alt="logo" className="logo" />
+        <img src={lachWhite} alt="logo" className="logo" />
         <h1 className="signup-title">SIGN UP</h1>
       </div>
       <form onSubmit={handleSignupSubmit}>
@@ -89,8 +84,12 @@ const SignUpForm = () => {
           <p>Already have an account?</p>
         </Link> */}
         <p className="error-message">{errorMessage}</p>
-        <p className="desarrollado-por">For business inquiries, rent or buy the software:</p>
-        <p className="desarrollado-por-2">biz@lachglobal.com</p>
+        <div className="text-signup-credits">
+          <p className="desarrollado-por">
+            For business inquiries, rent or buy this software:
+          </p>
+          <p className="desarrollado-por-2">biz@lachglobal.com</p>
+        </div>
       </form>
       <img src={signUpFooter} alt="signup-footer" className="signup-footer" />
     </div>

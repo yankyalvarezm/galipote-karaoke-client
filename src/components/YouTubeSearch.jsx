@@ -6,6 +6,7 @@ import AddToMySongs from "./AddToMySongs";
 import { useSongs } from "../context/Songs.context";
 import { ClipLoader } from "react-spinners";
 import logoBlue from "../assets/logo-blue.png";
+import lachWhite from "../assets/lach-logo.png";
 import { searchForSongInList } from "../services/songsList.services";
 import AddToMySongsFromList from "./AddToMySongsFromList";
 
@@ -80,7 +81,7 @@ const YouTubeSearch = ({ activeSession }) => {
 
   return (
     <div>
-      <img src={logoBlue} alt="cantico logo" className="logo-blue" />
+      <img src={lachWhite} alt="cantico logo" className="logo-blue" />
       <h3 className="findyoursongs-title">FIND YOUR SONGS</h3>
       <Form className="youtube-search-bar" onSubmit={handleSearch}>
         <Form.Control
