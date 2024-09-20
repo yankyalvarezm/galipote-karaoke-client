@@ -17,7 +17,7 @@ const EndSession = () => {
   } = useSongs();
 
   useEffect(() => {
-    console.log("timerActive", timerActive);
+    // console.log("timerActive", timerActive);
   }, [activeSession, timerActive]);
 
   const handleEndSession = async () => {

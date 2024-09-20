@@ -54,7 +54,7 @@ export const SongsProvider = ({ children }) => {
   useEffect(() => {
     const newSocket = io.connect(API_URL, { withCredentials: true });
     newSocket.on("connect", () => {
-      console.log("Socket conectado:", newSocket.connected); // Ahora debería mostrar true
+      // console.log("Socket conectado:", newSocket.connected); 
       setSocket(newSocket);
     });
 

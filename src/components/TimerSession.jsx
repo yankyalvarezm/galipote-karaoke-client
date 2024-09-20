@@ -52,6 +52,7 @@ const TimerSession = () => {
     setIsRunning(true);
     if (!isRunning) {
       socket.emit("toggleIsRunning", { isRunning: true });
+      console.log("Session Started:", isRunning);
     }
   };
 
@@ -60,6 +61,7 @@ const TimerSession = () => {
     setSessionStart(activeSession._id, false);
     if (isRunning) {
       socket.emit("toggleIsRunning", { isRunning: false });
+      console.log("Session Ended:", isRunning);
     }
   };
 
