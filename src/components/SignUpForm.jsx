@@ -89,7 +89,7 @@ const SignUpForm = () => {
           <p>Already have an account?</p>
         </Link> */}
         <p className="error-message">{errorMessage}</p>
-        <p className="desarrollado-por">For business inquiries & Developed by:</p>
+        <p className="desarrollado-por">For business inquiries, rent or buy the software:</p>
         <p className="desarrollado-por-2">biz@lachglobal.com</p>
       </form>
       <img src={signUpFooter} alt="signup-footer" className="signup-footer" />
