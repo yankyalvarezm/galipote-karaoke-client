@@ -8,7 +8,7 @@ import "./index.css";
 import { ErrorsProvider } from "./context/Errors.context.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <ErrorsProvider>
@@ -18,5 +18,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </ErrorsProvider>
       </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>
+
 );
