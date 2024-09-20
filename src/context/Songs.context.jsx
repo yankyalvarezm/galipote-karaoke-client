@@ -23,14 +23,14 @@ export const useSongs = () => useContext(SongsContext);
 
 export const SongsProvider = ({ children }) => {
   const [mySongs, setMySongs] = useState([]);
-  const [videoPull, setVideoPull] = useState([])
+  const [videoPull, setVideoPull] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeSession, setActiveSession] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [queueSongs, setQueueSongs] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [performPlaying, setPerfomPlaying] = useState(false)
+  const [performPlaying, setPerfomPlaying] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [seconds, setSeconds] = useState(0);
   const [startTime, setStartTime] = useState(null);
@@ -54,7 +54,7 @@ export const SongsProvider = ({ children }) => {
   useEffect(() => {
     const newSocket = io.connect(API_URL, { withCredentials: true });
     newSocket.on("connect", () => {
-      // console.log("Socket conectado:", newSocket.connected); 
+      // console.log("Socket conectado:", newSocket.connected);
       setSocket(newSocket);
     });
 
@@ -80,11 +80,12 @@ export const SongsProvider = ({ children }) => {
     });
 
     newSocket.on("toggleIsRunning", (data) => {
+      console.log("toggleIsRunning:", data.isRunning);
       setIsRunning(data.isRunning);
     });
-    newSocket.on("getIsRunning", (data) => {
-      setIsRunning(data.isRunning);
-    });
+    // newSocket.on("getIsRunning", (data) => {
+    //   setIsRunning(data.isRunning);
+    // });
     newSocket.on("getActiveSession", (data) => {
       setActiveSession(data.activeSession);
     });
@@ -99,7 +100,7 @@ export const SongsProvider = ({ children }) => {
       newSocket.off("update_perform");
       newSocket.off("updated_time");
       newSocket.off("toggleIsRunning");
-      newSocket.off("getIsRunning");
+      // newSocket.off("getIsRunning");
       newSocket.off("getActiveSession");
       newSocket.off("toggleIsPlaying");
       // newSocket.off("getQueue");
@@ -218,25 +219,24 @@ export const SongsProvider = ({ children }) => {
   };
 
   const toggleIsPlaying = () => {
-    setIsPlaying(prevState => {
+    setIsPlaying((prevState) => {
       // Solo cambia el estado si es diferente del actual
       const newState = !prevState;
       if (newState !== prevState) {
         if (socket) {
           socket.emit("toggleIsPlaying", newState);
-          console.log('socket is playing', newState);
+          console.log("socket is playing", newState);
         }
         return newState;
       }
       return prevState;
     });
   };
-  
 
   const handlePlayPauseClick = () => {
     // Cambiar el estado de reproducción cuando se hace clic en el botón
     // console.log('Video Paused:', isPlaying)
-    console.log('toggleisplaying context:', isPlaying)
+    console.log("toggleisplaying context:", isPlaying);
     toggleIsPlaying();
   };
 
@@ -263,7 +263,7 @@ export const SongsProvider = ({ children }) => {
   //       });
   //     }, 1000);
   //   },
-  //   [toggleIsPlaying, isPlaying] 
+  //   [toggleIsPlaying, isPlaying]
   // );
 
   // const stopCountdown = useCallback(() => {
@@ -274,7 +274,7 @@ export const SongsProvider = ({ children }) => {
   // }, []);
 
   // // useEffect(() => {
-   
+
   // // }, [isPlaying]);
 
   // useEffect(() => {
