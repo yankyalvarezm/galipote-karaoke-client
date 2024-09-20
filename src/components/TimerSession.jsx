@@ -55,7 +55,7 @@ const TimerSession = () => {
     }
   };
   console.log("Session Status:", isRunning);
-  console.log("activeSession:", activeSession)
+  // console.log("activeSession:", activeSession)
 
   const stopTimer = () => {
     setIsRunning(false);

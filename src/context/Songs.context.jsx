@@ -52,7 +52,10 @@ export const SongsProvider = ({ children }) => {
   // const [addSong, setAddSong] = useState(false)
 
   useEffect(() => {
-    const newSocket = io.connect(API_URL, { withCredentials: true });
+    const newSocket = io.connect(API_URL, {
+      withCredentials: true,
+      transports: ["websocket"],
+    });
     newSocket.on("connect", () => {
       // console.log("Socket conectado:", newSocket.connected);
       setSocket(newSocket);
@@ -83,9 +86,9 @@ export const SongsProvider = ({ children }) => {
       console.log("toggleIsRunning:", data.isRunning);
       setIsRunning(data.isRunning);
     });
-    // newSocket.on("getIsRunning", (data) => {
-    //   setIsRunning(data.isRunning);
-    // });
+    newSocket.on("getIsRunning", (data) => {
+      setIsRunning(data.isRunning);
+    });
     newSocket.on("getActiveSession", (data) => {
       setActiveSession(data.activeSession);
     });
@@ -100,7 +103,7 @@ export const SongsProvider = ({ children }) => {
       newSocket.off("update_perform");
       newSocket.off("updated_time");
       newSocket.off("toggleIsRunning");
-      // newSocket.off("getIsRunning");
+      newSocket.off("getIsRunning");
       newSocket.off("getActiveSession");
       newSocket.off("toggleIsPlaying");
       // newSocket.off("getQueue");
