@@ -52,18 +52,18 @@ const TimerSession = () => {
     setIsRunning(true);
     if (!isRunning) {
       socket.emit("toggleIsRunning", { isRunning: true });
-      console.log("Session Started:", isRunning);
     }
   };
+  console.log("Session Status:", isRunning);
 
   const stopTimer = () => {
     setIsRunning(false);
     setSessionStart(activeSession._id, false);
     if (isRunning) {
       socket.emit("toggleIsRunning", { isRunning: false });
-      console.log("Session Ended:", isRunning);
     }
   };
+  // console.log("Session Ended:", isRunning);
 
   return (
     <div className="timer-flex">
