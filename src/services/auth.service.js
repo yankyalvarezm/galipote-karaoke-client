@@ -77,7 +77,7 @@ export const login = async (
     }
     return response.data;
   } catch (error) {
-    console.log("Line 60 - Error:", error);
+    console.log("Line 60 - Error:", error.response);
     throw new Error(error.response.data.msg);
   }
 };

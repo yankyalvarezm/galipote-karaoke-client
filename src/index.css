@@ -48,7 +48,7 @@ a {
 .logo {
   height: 80%;
   width: 80%;
-  margin-left: 3%;
+  margin-left: 9%;
   margin-bottom: 10%;
 }
 .logo-title {
@@ -1197,6 +1197,7 @@ h3 {
 
 .desarrollado-por {
   color: var(--gris-claro);
+  white-space: nowrap;
   margin-top: 3rem;
 }
 

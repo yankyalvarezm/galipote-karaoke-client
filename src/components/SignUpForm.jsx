@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { tempSignUp, handleInputChange } from "../services/auth.service";
 import cantico from "../assets/cantico-black-white.png";
+import lach from "../assets/lach-blue-logo.png";
 import { AuthContext } from "../context/auth.context";
 import { useSongs } from "../context/Songs.context";
 import signUpFooter from "../assets/signup-footer.png"
@@ -43,7 +44,7 @@ const SignUpForm = () => {
   return (
     <div className="userform-container">
       <div className="logo-title">
-        <img src={cantico} alt="logo" className="logo" />
+        <img src={lach} alt="logo" className="logo" />
         <h1 className="signup-title">SIGN UP</h1>
       </div>
       <form onSubmit={handleSignupSubmit}>
@@ -88,8 +89,8 @@ const SignUpForm = () => {
           <p>Already have an account?</p>
         </Link> */}
         <p className="error-message">{errorMessage}</p>
-        <p className="desarrollado-por">App desarrollada por:</p>
-        <p className="desarrollado-por-2">alvarezyanky7@gmail.com & alextor2625@gmail.com</p>
+        <p className="desarrollado-por">For business inquiries & Developed by:</p>
+        <p className="desarrollado-por-2">biz@lachglobal.com</p>
       </form>
       <img src={signUpFooter} alt="signup-footer" className="signup-footer" />
     </div>

@@ -21,7 +21,7 @@ export const getYouTubeVideoDetails = async (videoId) => {
     });
     return response.data;
   } catch (error) {
-    console.error("Error al obtener detalles del video de YouTube", error);
+    console.error("Error al obtener detalles del video de YouTube", error.response);
     throw error;
   }
 };
@@ -57,7 +57,7 @@ export const getMySongs = async (sessionId) => {
     // console.log('get my songs:', response.data)
     return response.data;
   } catch (error) {
-    console.error("Error al obtener mis canciones", error);
+    console.error("Error al obtener mis canciones", error.response);
     throw error;
   }
 };
@@ -78,7 +78,7 @@ export const deleteSong = async (perfomId, sessionId) => {
     // console.log('Respuesta al eliminar perfom:', response.data);
     return response.data;
   } catch (error) {
-    console.error("Error al eliminar perfom", error);
+    console.error("Error al eliminar perfom", error.response);
     throw error;
   }
 };
@@ -117,7 +117,7 @@ export const getQueueSongs = async (sessionId) => {
     // console.log("queue songs", response.data);
     return response.data;
   } catch (error) {
-    console.error("Error al obtener canciones en la cola:", error);
+    console.error("Error al obtener canciones en la cola:", error.response);
     throw error;
   }
 };
@@ -139,7 +139,7 @@ export const updatePerfomStatus = async (perfomId, statusData) => {
     // console.log('update perform status:', response.data)
     return response.data;
   } catch (error) {
-    console.error("Error al actualizar el estado del Perfom:", error);
+    console.error("Error al actualizar el estado del Perfom:", error.response);
     throw error;
   }
 };
@@ -160,7 +160,7 @@ export const updateMaxQueueLimit = async (sessionId, maxQueueLimit) => {
     ); // Corregido aquí
     return response.data;
   } catch (error) {
-    console.error("Error al actualizar maxQueueLimit", error);
+    console.error("Error al actualizar maxQueueLimit", error.response);
     throw error;
   }
 };
