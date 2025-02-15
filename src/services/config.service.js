@@ -1,5 +1,5 @@
 // const API_URL = "http://localhost:3000";
-const API_URL = "https://lach-karaoke-server.adaptable.app";
+const API_URL = "lach-karaoke-server.railway.internal";
 
 // const TEST_HOST = "http://localhost:5173";
 const TEST_HOST = "https://lach-karaoke.netlify.app";
