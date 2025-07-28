@@ -37,6 +37,8 @@ const SignUpForm = () => {
       });
   };
 
+  // added galipote logo
+
   return (
     <div className="userform-container">
       <div className="logo-title">
