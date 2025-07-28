@@ -4,6 +4,7 @@ import { tempSignUp, handleInputChange } from "../services/auth.service";
 import cantico from "../assets/cantico-black-white.png";
 import lach from "../assets/lach-blue-logo.png";
 import lachWhite from "../assets/lach-logo.png";
+import galipoteLogo from "../assets/galipote-logo.png";
 import { AuthContext } from "../context/auth.context";
 import { useSongs } from "../context/Songs.context";
 import signUpFooter from "../assets/signup-footer.png";
@@ -39,7 +40,8 @@ const SignUpForm = () => {
   return (
     <div className="userform-container">
       <div className="logo-title">
-        <img src={lachWhite} alt="logo" className="logo" />
+        <img src={lachWhite} alt="logo" className="lach-logo logo" />
+        <img src={galipoteLogo} alt="logo" className="logo" />
         <h1 className="signup-title">SIGN UP</h1>
       </div>
       <form onSubmit={handleSignupSubmit}>
